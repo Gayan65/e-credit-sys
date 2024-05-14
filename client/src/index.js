@@ -5,6 +5,7 @@ import Login from "./Login";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./components/Home";
 import ErrorPage from "./components/ErrorPage";
+import CurrentClientsDashBoard from "./components/dashboard/CurrentClientsDashBoard";
 
 const router = createBrowserRouter([
   {
@@ -15,6 +16,10 @@ const router = createBrowserRouter([
   {
     path: "/home",
     element: <Home />,
+  },
+  {
+    path: "/home/:dash_board_view",
+    element: <CurrentClientsDashBoard />,
   },
 ]);
 
