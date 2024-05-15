@@ -2,6 +2,7 @@ import React from "react";
 import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
+import { Outlet } from "react-router-dom";
 
 const Nav = () => {
   const user = {
@@ -11,8 +12,8 @@ const Nav = () => {
       "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
   };
   const navigation = [
-    { name: "Current clients", href: "#", current: true },
-    { name: "Team", href: "#", current: false },
+    { name: "Current clients", href: "/home", current: true },
+    { name: "About", href: "/home/about", current: false },
     { name: "Projects", href: "#", current: false },
     { name: "Calendar", href: "#", current: false },
     { name: "Reports", href: "#", current: false },
@@ -28,14 +29,6 @@ const Nav = () => {
   }
   return (
     <>
-      {/*
-        This example requires updating your template:
-
-        ```
-        <html class="h-full bg-gray-100">
-        <body class="h-full">
-        ```
-      */}
       <div className="min-h-full">
         <Disclosure as="nav" className="bg-gray-800">
           {({ open }) => (
@@ -217,7 +210,7 @@ const Nav = () => {
         </header>
         <main>
           <div className="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
-            {/* Your content */}
+            <Outlet />
           </div>
         </main>
       </div>

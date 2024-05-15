@@ -8,15 +8,17 @@ import {
   Route,
   RouterProvider,
 } from "react-router-dom";
-import Nav from "./components/Nav";
-import ErrorPage from "./components/ErrorPage";
-import CurrentClientsDashBoard from "./components/dashboard/CurrentClientsDashBoard";
+import ErrorPage from "./components/pages/ErrorPage";
+import Nav from "./components/layouts/Nav";
+import About from "./components/pages/About";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
       <Route path="/" element={<Login />} />
-      <Route path="/home" element={<Nav />}></Route>
+      <Route path="/home" element={<Nav />}>
+        <Route path="about" element={<About />} />
+      </Route>
       <Route path="*" element={<ErrorPage />} />
     </Route>
   )
