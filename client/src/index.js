@@ -11,6 +11,7 @@ import {
 import ErrorPage from "./components/pages/ErrorPage";
 import Nav from "./components/layouts/Nav";
 import About from "./components/pages/About";
+import Contact from "./components/pages/Contact";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -18,6 +19,7 @@ const router = createBrowserRouter(
       <Route path="/" element={<Login />} />
       <Route path="/home" element={<Nav />}>
         <Route path="about" element={<About />} />
+        <Route path="contact" element={<Contact />} />
       </Route>
       <Route path="*" element={<ErrorPage />} />
     </Route>
