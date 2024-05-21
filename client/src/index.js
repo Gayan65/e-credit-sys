@@ -12,12 +12,14 @@ import ErrorPage from "./components/pages/ErrorPage";
 import Nav from "./components/layouts/Nav";
 import About from "./components/pages/About";
 import Contact from "./components/pages/Contact";
+import { CurrentClients } from "./components/pages/CurrentClients";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
       <Route path="/" element={<Login />} />
       <Route path="/home" element={<Nav />}>
+        <Route index path="/home" element={<CurrentClients />} />
         <Route path="about" element={<About />} />
         <Route path="contact" element={<Contact />} />
       </Route>
