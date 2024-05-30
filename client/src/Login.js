@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { Form, redirect } from "react-router-dom";
+import { Form, redirect, useActionData } from "react-router-dom";
 import axios from "axios";
 
 export const Login = () => {
+  const msgData = useActionData();
   return (
     <div className="flex justify-center items-center h-screen bg-indigo-600">
       <Form method="POST" action="/">
@@ -50,6 +51,14 @@ export const Login = () => {
             </button>
           </div>
         </div>
+        {msgData && msgData.error && (
+          <p
+            className="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+            role="alert"
+          >
+            {msgData.error}
+          </p>
+        )}
       </Form>
     </div>
   );
@@ -74,9 +83,10 @@ export const loginAction = async ({ request }) => {
     .catch((err) => console.log(err));
   console.log(loginSuccess);
 
-  if (loginSuccess) {
-    // redirect
-    return redirect("/home");
+  if (!loginSuccess) {
+    return { error: "Invalid credentials !" };
   }
-  return redirect("/");
+
+  // redirect
+  return redirect("/home");
 };

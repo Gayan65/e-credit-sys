@@ -7,7 +7,7 @@ app.use(cors());
 
 app.get("/", (req, res) => {
   res.status(200).json({
-    success: false,
+    success: true,
   });
 });
 
